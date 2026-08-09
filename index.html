@@ -1,0 +1,1550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotaract Club Leadership</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --cranberry: #d41367;
+            --cranberry-dark: #b00f55;
+            --cranberry-light: #f7d6e6;
+            --white: #ffffff;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-500: #6b7280;
+            --gray-700: #374151;
+            --gray-900: #111827;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.07);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.13), 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--gray-900);
+            background: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ========== NAVIGATION ========== */
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: var(--white);
+            box-shadow: 0 2px 20px rgba(212,19,103,0.10);
+            border-bottom: 3px solid var(--cranberry);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 68px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        .nav-logo-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .nav-logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+        }
+
+        .nav-logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--cranberry);
+            line-height: 1.2;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            list-style: none;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 14px;
+            text-decoration: none;
+            color: var(--cranberry);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            border-radius: 6px;
+            transition: background 0.2s, color 0.2s;
+            white-space: nowrap;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .nav-link:hover {
+            background: var(--cranberry-light);
+            color: var(--cranberry-dark);
+        }
+
+        .nav-link.active {
+            background: var(--cranberry-light);
+        }
+
+        .nav-dropdown-icon {
+            color: var(--cranberry);
+            font-size: 0.65rem;
+            transition: transform 0.25s;
+            line-height: 1;
+        }
+
+        .nav-item:hover .nav-dropdown-icon {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            top: calc(100% + 8px);
+            left: 0;
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: var(--shadow-lg);
+            border: 1px solid var(--gray-200);
+            min-width: 200px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 11px 18px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: background 0.18s, color 0.18s;
+            border-bottom: 1px solid var(--gray-100);
+        }
+
+        .dropdown-item:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-item:hover {
+            background: var(--cranberry-light);
+            color: var(--cranberry);
+        }
+
+        .nav-btn-join {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 9px 18px;
+            background: var(--cranberry);
+            color: var(--white) !important;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            transition: background 0.2s, transform 0.18s, box-shadow 0.2s;
+            box-shadow: 0 2px 10px rgba(212,19,103,0.28);
+            white-space: nowrap;
+        }
+
+        .nav-btn-join:hover {
+            background: var(--cranberry-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 18px rgba(212,19,103,0.38);
+            color: var(--white) !important;
+        }
+
+        /* Hamburger */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 6px;
+            border: none;
+            background: none;
+            border-radius: 6px;
+            transition: background 0.2s;
+        }
+
+        .hamburger:hover {
+            background: var(--cranberry-light);
+        }
+
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--cranberry);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+
+        .hamburger.open span:nth-child(1) {
+            transform: translateY(7px) rotate(45deg);
+        }
+
+        .hamburger.open span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.open span:nth-child(3) {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* Mobile Nav */
+        .mobile-nav {
+            display: none;
+            background: var(--white);
+            border-top: 1px solid var(--gray-200);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .mobile-nav.open {
+            max-height: 700px;
+        }
+
+        .mobile-nav-inner {
+            padding: 12px 24px 20px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 12px 0;
+            color: var(--cranberry);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-bottom: 1px solid var(--gray-100);
+            transition: color 0.18s;
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--cranberry-dark);
+        }
+
+        .mobile-dropdown-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+        }
+
+        .mobile-dropdown-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .mobile-dropdown-content.open {
+            max-height: 300px;
+        }
+
+        .mobile-dropdown-item {
+            display: block;
+            padding: 10px 16px;
+            color: var(--gray-700);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--gray-100);
+            transition: color 0.18s;
+        }
+
+        .mobile-dropdown-item:hover {
+            color: var(--cranberry);
+        }
+
+        .mobile-nav-join {
+            display: block;
+            margin-top: 16px;
+            padding: 12px 20px;
+            background: var(--cranberry);
+            color: var(--white);
+            border-radius: 25px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav-join:hover {
+            background: var(--cranberry-dark);
+        }
+
+        /* ========== HERO SECTION ========== */
+        .hero {
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            background: var(--gray-900);
+        }
+
+        .hero-img {
+            width: 100%;
+            max-height: 520px;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 6s ease;
+        }
+
+        .hero:hover .hero-img {
+            transform: scale(1.03);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.08) 0%, rgba(212,19,103,0.18) 100%);
+            pointer-events: none;
+        }
+
+        /* ========== SECTION COMMON ========== */
+        .section {
+            padding: 72px 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            color: var(--cranberry);
+            margin-bottom: 8px;
+            line-height: 1.15;
+        }
+
+        .section-subtitle {
+            color: var(--gray-500);
+            font-size: 1rem;
+            margin-bottom: 48px;
+            font-weight: 400;
+        }
+
+        .section-divider {
+            width: 64px;
+            height: 4px;
+            background: var(--cranberry);
+            border-radius: 2px;
+            margin-bottom: 16px;
+        }
+
+        /* ========== EXECUTIVE BOARD ========== */
+        .board-section {
+            background: var(--gray-50);
+            padding: 72px 0;
+        }
+
+        .board-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .board-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .board-header .section-title {
+            margin-bottom: 8px;
+        }
+
+        .board-header .section-subtitle {
+            margin-bottom: 0;
+        }
+
+        .board-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+
+        .board-card {
+            background: var(--white);
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
+            display: flex;
+            align-items: stretch;
+            overflow: hidden;
+            transition: transform 0.28s, box-shadow 0.28s;
+            border: 1px solid var(--gray-200);
+        }
+
+        .board-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .board-card-accent {
+            width: 6px;
+            background: var(--cranberry);
+            flex-shrink: 0;
+        }
+
+        .board-card-photo-wrap {
+            padding: 24px 20px 24px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            flex-shrink: 0;
+        }
+
+        .board-photo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--cranberry-light);
+            box-shadow: 0 4px 12px rgba(212,19,103,0.18);
+            transition: border-color 0.25s, box-shadow 0.25s;
+            background: var(--gray-200);
+        }
+
+        .board-card:hover .board-photo {
+            border-color: var(--cranberry);
+            box-shadow: 0 6px 20px rgba(212,19,103,0.28);
+        }
+
+        .board-position {
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--cranberry);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            text-align: center;
+            line-height: 1.3;
+            max-width: 100px;
+        }
+
+        .board-card-divider {
+            width: 1px;
+            background: var(--gray-200);
+            margin: 16px 0;
+            flex-shrink: 0;
+            align-self: stretch;
+        }
+
+        .board-card-info {
+            padding: 24px 28px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .board-info-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            font-size: 0.9rem;
+        }
+
+        .board-info-label {
+            font-weight: 700;
+            color: var(--gray-700);
+            min-width: 110px;
+            flex-shrink: 0;
+        }
+
+        .board-info-value {
+            color: var(--gray-700);
+            font-style: normal;
+            font-weight: 400;
+        }
+
+        /* ========== PAST PRESIDENTS ========== */
+        .presidents-section {
+            background: var(--white);
+            padding: 72px 0;
+        }
+
+        .presidents-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .timeline {
+            position: relative;
+            margin-top: 16px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 68px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--cranberry), var(--cranberry-light));
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(-20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .timeline-year {
+            width: 68px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--cranberry);
+            text-align: right;
+            padding-right: 20px;
+            flex-shrink: 0;
+            line-height: 1.3;
+        }
+
+        .timeline-dot {
+            width: 14px;
+            height: 14px;
+            background: var(--cranberry);
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin: 0 20px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 0 0 3px var(--cranberry-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: scale(1.3);
+            box-shadow: 0 0 0 5px var(--cranberry-light);
+        }
+
+        .timeline-content {
+            flex: 1;
+            background: var(--gray-50);
+            border: 1px solid var(--gray-200);
+            border-radius: 10px;
+            padding: 14px 20px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--gray-700);
+            transition: background 0.2s, border-color 0.2s, color 0.2s, transform 0.2s;
+        }
+
+        .timeline-item:hover .timeline-content {
+            background: var(--cranberry-light);
+            border-color: var(--cranberry);
+            color: var(--cranberry-dark);
+            transform: translateX(4px);
+        }
+
+        .timeline-content .president-year-label {
+            display: none;
+        }
+
+        /* ========== GET INVOLVED ========== */
+        .involved-section {
+            background: var(--gray-50);
+            padding: 72px 0;
+            text-align: center;
+        }
+
+        .involved-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .involved-buttons {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .involved-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            background: var(--cranberry);
+            color: var(--white);
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            box-shadow: 0 4px 16px rgba(212,19,103,0.28);
+            transition: background 0.22s, transform 0.22s, box-shadow 0.22s;
+            border: 2px solid transparent;
+        }
+
+        .involved-btn:hover {
+            background: var(--cranberry-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 28px rgba(212,19,103,0.40);
+        }
+
+        .involved-btn:active {
+            transform: translateY(-1px);
+        }
+
+        .involved-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            flex-shrink: 0;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: var(--cranberry);
+            color: var(--white);
+            text-align: center;
+            padding: 28px 24px;
+        }
+
+        .footer-text {
+            font-size: 0.9rem;
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            opacity: 0.95;
+            line-height: 1.8;
+        }
+
+        .footer-text strong {
+            font-weight: 700;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255,255,255,0.4);
+            border-radius: 2px;
+            margin: 10px auto;
+        }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 900px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .hero-img {
+                max-height: 380px;
+            }
+
+            .board-info-label {
+                min-width: 90px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-container {
+                height: 60px;
+            }
+
+            .hero-img {
+                max-height: 260px;
+            }
+
+            .section {
+                padding: 48px 16px;
+            }
+
+            .board-card {
+                flex-direction: column;
+            }
+
+            .board-card-accent {
+                width: 100%;
+                height: 5px;
+            }
+
+            .board-card-photo-wrap {
+                flex-direction: row;
+                padding: 20px 20px 12px;
+                gap: 16px;
+                align-items: center;
+            }
+
+            .board-position {
+                text-align: left;
+                max-width: 200px;
+            }
+
+            .board-photo {
+                width: 76px;
+                height: 76px;
+            }
+
+            .board-card-divider {
+                display: none;
+            }
+
+            .board-card-info {
+                padding: 12px 20px 20px;
+                border-top: 1px solid var(--gray-200);
+            }
+
+            .timeline::before {
+                left: 56px;
+            }
+
+            .timeline-year {
+                width: 56px;
+                font-size: 0.70rem;
+            }
+
+            .timeline-content {
+                font-size: 0.88rem;
+                padding: 11px 14px;
+            }
+
+            .involved-buttons {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+            }
+
+            .involved-btn {
+                justify-content: center;
+            }
+
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+
+        /* Fancy hover underline for nav */
+        .nav-link-underline {
+            position: relative;
+        }
+
+        .nav-link-underline::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 14px;
+            right: 14px;
+            height: 2px;
+            background: var(--cranberry);
+            border-radius: 1px;
+            transform: scaleX(0);
+            transition: transform 0.22s;
+        }
+
+        .nav-link-underline:hover::after {
+            transform: scaleX(1);
+        }
+
+        /* Card stagger animation */
+        .board-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease, box-shadow 0.28s, transform 0.28s;
+        }
+
+        .board-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .board-card:hover {
+            transform: translateY(-4px) !important;
+        }
+
+        /* Photo placeholder shimmer */
+        .board-photo {
+            background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .board-photo.loaded {
+            animation: none;
+            background: none;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Current president badge */
+        .current-badge {
+            display: inline-block;
+            background: var(--cranberry);
+            color: white;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== NAVIGATION ========== -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="https://www.nobordersrotaract.club/home" class="nav-logo" aria-label="Rotaract Club Home">
+                <div class="nav-logo-icon">
+                    <img src="https://iili.io/C4uPg3b.png" alt="No Borders Rotaract Club logo" />
+                </div>
+                <div>
+                    <div class="nav-logo-text">No Borders Rotaract</div>
+                </div>
+            </a>
+
+            <ul class="nav-menu" role="menubar">
+                <li class="nav-item" role="none">
+                    <a href="https://www.nobordersrotaract.club/home" class="nav-link nav-link-underline" role="menuitem">Home</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <button class="nav-link" aria-haspopup="true" aria-expanded="false" role="menuitem">
+                        About
+                        <span class="nav-dropdown-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="#board" class="dropdown-item" role="menuitem">Club Leadership</a>
+                        <a href="https://www.nobordersrotaract.club/about/service" class="dropdown-item" role="menuitem">Service</a>
+                        <a href="https://www.nobordersrotaract.club/about/history" class="dropdown-item" role="menuitem">History</a>
+                    </div>
+                </li>
+                <li class="nav-item" role="none">
+                    <button class="nav-link" aria-haspopup="true" aria-expanded="false" role="menuitem">
+                        Get Involved
+                        <span class="nav-dropdown-icon" aria-hidden="true">▼</span>
+                    </button>
+                    <div class="dropdown-menu" role="menu">
+                        <a href="https://www.nobordersrotaract.club/get-involved/activities" class="dropdown-item" role="menuitem">Activities</a>
+                        <a href="https://www.nobordersrotaract.club/get-involved/committees" class="dropdown-item" role="menuitem">Committees</a>
+                        <a href="https://www.nobordersrotaract.club/get-involved/fellowship" class="dropdown-item" role="menuitem">Fellowship</a>
+                        <a href="https://www.nobordersrotaract.club/get-involved/dues" class="dropdown-item" role="menuitem">Dues</a>
+                    </div>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="https://www.nobordersrotaract.club/contact-us" class="nav-link nav-link-underline" role="menuitem">Contact Us</a>
+                </li>
+                <li class="nav-item" role="none">
+                    <a href="https://www.nobordersrotaract.club/new-member-form-join-today"
+                       class="nav-btn-join" target="_blank" rel="noopener" role="menuitem">
+                        ✦ New Member Form — Join Today!
+                    </a>
+                </li>
+            </ul>
+
+            <button class="hamburger" id="hamburger" aria-label="Toggle mobile menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+
+        <!-- Mobile Nav -->
+        <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+            <div class="mobile-nav-inner">
+                <a href="https://www.nobordersrotaract.club/home" class="mobile-nav-link">Home</a>
+
+                <div class="mobile-nav-link mobile-dropdown-toggle" id="mobileAboutToggle" tabindex="0">
+                    <span>About</span>
+                    <span class="nav-dropdown-icon" style="color:var(--cranberry);">▼</span>
+                </div>
+                <div class="mobile-dropdown-content" id="mobileAboutMenu">
+                    <a href="#board" class="mobile-dropdown-item">Club Leadership</a>
+                    <a href="https://www.nobordersrotaract.club/about/service" class="mobile-dropdown-item">Service</a>
+                    <a href="https://www.nobordersrotaract.club/about/history" class="mobile-dropdown-item">History</a>
+                </div>
+
+                <div class="mobile-nav-link mobile-dropdown-toggle" id="mobileInvolvedToggle" tabindex="0">
+                    <span>Get Involved</span>
+                    <span class="nav-dropdown-icon" style="color:var(--cranberry);">▼</span>
+                </div>
+                <div class="mobile-dropdown-content" id="mobileInvolvedMenu">
+                    <a href="https://www.nobordersrotaract.club/get-involved/activities" class="mobile-dropdown-item">Activities</a>
+                    <a href="https://www.nobordersrotaract.club/get-involved/committees" class="mobile-dropdown-item">Committees</a>
+                    <a href="https://www.nobordersrotaract.club/get-involved/fellowship" class="mobile-dropdown-item">Fellowship</a>
+                    <a href="https://www.nobordersrotaract.club/get-involved/dues" class="mobile-dropdown-item">Dues</a>
+                </div>
+
+                <a href="https://www.nobordersrotaract.club/contact-us" class="mobile-nav-link">Contact Us</a>
+
+                <a href="https://www.nobordersrotaract.club/new-member-form-join-today"
+                   class="mobile-nav-join" target="_blank" rel="noopener">
+                    ✦ New Member Form — Join Today!
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ========== HERO SECTION ========== -->
+    <section class="hero" aria-label="Hero banner">
+        <img
+            src="https://iili.io/C4TcFmF.jpg"
+            alt="No Borders Rotaract Club banner"
+            class="hero-img"
+            loading="eager"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+    </section>
+
+    <!-- ========== EXECUTIVE BOARD SECTION ========== -->
+    <section class="board-section" id="board" aria-labelledby="board-title">
+        <div class="board-inner">
+            <div class="board-header fade-up">
+                <h2 class="section-title" id="board-title">Executive Board</h2>
+                <p class="section-subtitle">Meet the dedicated leaders guiding our club forward</p>
+            </div>
+
+            <div class="board-grid" id="boardGrid">
+
+                <!-- 1. President -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zf6vI.jpg" alt="President photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">President</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Daniel Green</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Immediate Past President -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4z0oSS.jpg" alt="Immediate Past President photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Immediate Past President</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Sarah Atkins</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Vice-President -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zquZg.jpg" alt="Vice-President photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Vice-President</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Karl Uzcategui</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Secretary -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4z0Sbn.jpg" alt="Secretary photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Secretary</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Tia Lorencic</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Treasurer -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4z0Z57.jpg" alt="Treasurer photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Treasurer</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Zoe Hollenbeck</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Rotaract Advisor -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zlXF2.jpg" alt="Rotaract Advisor photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Rotaract Advisor</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Jonathan Droste</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. IT Chair -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zqSte.jpg" alt="IT Chair photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">IT Chair</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Thiago Freitas</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Public Relations Chair -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zqXMG.jpg" alt="Public Relations Chair photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Public Relations Chair</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Rafael Guimarães</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. Membership Committee Chair -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4zltoJ.jpg" alt="Membership Committee Chair photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Membership Committee Chair</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Caleb Sanchez</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. Community Service Chair -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4z0clV.jpg" alt="Community Service Chair photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Community Service Chair</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Sonja Peschel</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. Rotaract Learning Facilitator -->
+                <div class="board-card" role="article">
+                    <div class="board-card-accent" aria-hidden="true"></div>
+                    <div class="board-card-photo-wrap">
+                        <img src="https://iili.io/C4z0Dbe.jpg" alt="Rotaract Learning Facilitator photo" class="board-photo" loading="lazy" onload="this.classList.add('loaded')"/>
+                        <div class="board-position">Rotaract Learning Facilitator</div>
+                    </div>
+                    <div class="board-card-divider" aria-hidden="true"></div>
+                    <div class="board-card-info">
+                        <div class="board-info-row">
+                            <span class="board-info-label">Name:</span>
+                            <span class="board-info-value">Nawal Alali</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Vocation:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                        <div class="board-info-row">
+                            <span class="board-info-label">Home Country:</span>
+                            <span class="board-info-value">to be edit</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /board-grid -->
+        </div>
+    </section>
+
+    <!-- ========== PAST PRESIDENTS SECTION ========== -->
+    <section class="presidents-section" id="past-presidents" aria-labelledby="presidents-title">
+        <div class="presidents-inner">
+            <div class="fade-up">
+                <div class="section-divider"></div>
+                <h2 class="section-title" id="presidents-title">Past Presidents</h2>
+                <p class="section-subtitle">A legacy of leadership shaping our club's history</p>
+            </div>
+
+            <div class="timeline" role="list" aria-label="Past Presidents timeline">
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2025<br>2026</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">
+                        Sarah Atkins <span class="current-badge">Current</span>
+                    </div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2024<br>2025</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Anja Jungmayr</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2023<br>2024</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Aishwarya Saxena</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2022<br>2023</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Zoe Hershenson</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2021<br>2022</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Karl Uzcategui</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2020<br>2021</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Bola-Ige Alabi-Efeshodiamhe</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2019<br>2020</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Stephen Mast</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2018<br>2019</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Matthew Bateman</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2017<br>2018</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Pattie Mackenzie</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2016<br>2017</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Manuel Pascual Lorenzo</div>
+                </div>
+
+                <div class="timeline-item" role="listitem">
+                    <div class="timeline-year">2015<br>2016</div>
+                    <div class="timeline-dot" aria-hidden="true"></div>
+                    <div class="timeline-content">Cheyanne Rico</div>
+                </div>
+
+            </div><!-- /timeline -->
+        </div>
+    </section>
+
+    <!-- ========== GET INVOLVED SECTION ========== -->
+    <section class="involved-section" id="involved" aria-labelledby="involved-title">
+        <div class="involved-inner">
+            <div class="fade-up">
+                <div class="section-divider" style="margin: 0 auto 16px;"></div>
+                <h2 class="section-title" id="involved-title">Get Involved</h2>
+                <p class="section-subtitle">Connect with us and become part of our community</p>
+            </div>
+
+            <div class="involved-buttons fade-up">
+
+                <!-- Facebook Button -->
+                <a href="https://www.facebook.com/NoBordersRotaract/"
+                   class="involved-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Follow us on Facebook">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073C0 18.1 4.388 23.094 10.125 24v-8.437H7.078v-3.49h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.49h-2.796V24C19.612 23.094 24 18.1 24 12.073z"/>
+                    </svg>
+                    Facebook
+                </a>
+
+                <!-- Instagram Button -->
+                <a href="https://www.instagram.com/no_borders_rotaract/"
+                   class="involved-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Follow us on Instagram">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                    Instagram
+                </a>
+
+                <!-- Join Button -->
+                <a href="https://www.nobordersrotaract.club/new-member-form-join-today"
+                   class="involved-btn"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Join our club">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" style="fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <line x1="19" y1="8" x2="19" y2="14"/>
+                        <line x1="22" y1="11" x2="16" y2="11"/>
+                    </svg>
+                    Join Us
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer" id="footer" role="contentinfo">
+        <p class="footer-text">
+            <strong>2015–2026</strong>
+        </p>
+        <div class="footer-divider" aria-hidden="true"></div>
+        <p class="footer-text">
+            &copy; No Borders Rotaract Club &nbsp;|&nbsp; Developed by <strong>Thiago Freitas</strong>
+        </p>
+    </footer>
+
+    <script>
+        // ========== HAMBURGER MENU ==========
+        const hamburger = document.getElementById('hamburger');
+        const mobileNav = document.getElementById('mobileNav');
+
+        hamburger.addEventListener('click', function () {
+            const isOpen = mobileNav.classList.toggle('open');
+            hamburger.classList.toggle('open', isOpen);
+            hamburger.setAttribute('aria-expanded', isOpen.toString());
+            mobileNav.setAttribute('aria-hidden', (!isOpen).toString());
+        });
+
+        // Close mobile nav on outside click
+        document.addEventListener('click', function (e) {
+            if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+                mobileNav.setAttribute('aria-hidden', 'true');
+            }
+        });
+
+        // ========== MOBILE DROPDOWNS ==========
+        function setupMobileDropdown(toggleId, menuId) {
+            const toggle = document.getElementById(toggleId);
+            const menu = document.getElementById(menuId);
+            if (!toggle || !menu) return;
+
+            const icon = toggle.querySelector('.nav-dropdown-icon');
+
+            toggle.addEventListener('click', function () {
+                const isOpen = menu.classList.toggle('open');
+                if (icon) icon.style.transform = isOpen ? 'rotate(180deg)' : '';
+            });
+
+            toggle.addEventListener('keydown', function (e) {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggle.click();
+                }
+            });
+        }
+
+        setupMobileDropdown('mobileAboutToggle', 'mobileAboutMenu');
+        setupMobileDropdown('mobileInvolvedToggle', 'mobileInvolvedMenu');
+
+        // Close mobile menu when a link is clicked
+        mobileNav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                mobileNav.classList.remove('open');
+                hamburger.classList.remove('open');
+                hamburger.setAttribute('aria-expanded', 'false');
+            });
+        });
+
+        // ========== INTERSECTION OBSERVER - ANIMATIONS ==========
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -40px 0px'
+        };
+
+        // Fade-up elements
+        const fadeObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeObserver.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-up').forEach(function (el) {
+            fadeObserver.observe(el);
+        });
+
+        // Board cards — staggered
+        const boardObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry, idx) {
+                if (entry.isIntersecting) {
+                    const delay = Array.from(document.querySelectorAll('.board-card')).indexOf(entry.target) * 80;
+                    setTimeout(function () {
+                        entry.target.classList.add('visible');
+                    }, delay);
+                    boardObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.08, rootMargin: '0px 0px -20px 0px' });
+
+        document.querySelectorAll('.board-card').forEach(function (card) {
+            boardObserver.observe(card);
+        });
+
+        // Timeline items — staggered
+        const timelineObserver = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    const items = document.querySelectorAll('.timeline-item');
+                    const idx = Array.from(items).indexOf(entry.target);
+                    setTimeout(function () {
+                        entry.target.classList.add('visible');
+                    }, idx * 90);
+                    timelineObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.timeline-item').forEach(function (item) {
+            timelineObserver.observe(item);
+        });
+
+        // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
+        document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+            anchor.addEventListener('click', function (e) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // ========== NAVBAR SCROLL SHADOW ==========
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', function () {
+            if (window.scrollY > 10) {
+                navbar.style.boxShadow = '0 4px 24px rgba(212,19,103,0.15)';
+            } else {
+                navbar.style.boxShadow = '0 2px 20px rgba(212,19,103,0.10)';
+            }
+        }, { passive: true });
+    </script>
+
+</body>
+</html>
