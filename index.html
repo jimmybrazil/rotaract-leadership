@@ -42,7 +42,6 @@
             overflow-x: hidden;
         }
 
-        /* ========== NAVIGATION ========== */
         .navbar {
             position: sticky;
             top: 0;
@@ -213,7 +212,6 @@
             color: var(--white) !important;
         }
 
-        /* Hamburger */
         .hamburger {
             display: none;
             flex-direction: column;
@@ -251,7 +249,6 @@
             transform: translateY(-7px) rotate(-45deg);
         }
 
-        /* Mobile Nav */
         .mobile-nav {
             display: none;
             background: var(--white);
@@ -335,7 +332,6 @@
             background: var(--cranberry-dark);
         }
 
-        /* ========== HERO SECTION ========== */
         .hero {
             width: 100%;
             position: relative;
@@ -363,7 +359,6 @@
             pointer-events: none;
         }
 
-        /* ========== SECTION COMMON ========== */
         .section {
             padding: 72px 24px;
             max-width: 1200px;
@@ -394,7 +389,6 @@
             margin-bottom: 16px;
         }
 
-        /* ========== EXECUTIVE BOARD ========== */
         .board-section {
             background: var(--gray-50);
             padding: 72px 0;
@@ -520,7 +514,6 @@
             font-weight: 400;
         }
 
-        /* ========== PAST PRESIDENTS ========== */
         .presidents-section {
             background: var(--white);
             padding: 72px 0;
@@ -615,7 +608,6 @@
             display: none;
         }
 
-        /* ========== GET INVOLVED ========== */
         .involved-section {
             background: var(--gray-50);
             padding: 72px 0;
@@ -671,7 +663,6 @@
             flex-shrink: 0;
         }
 
-        /* ========== FOOTER ========== */
         .footer {
             background: var(--cranberry);
             color: var(--white);
@@ -699,7 +690,6 @@
             margin: 10px auto;
         }
 
-        /* ========== SCROLL ANIMATIONS ========== */
         .fade-up {
             opacity: 0;
             transform: translateY(24px);
@@ -711,7 +701,6 @@
             transform: translateY(0);
         }
 
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 900px) {
             .nav-menu {
                 display: none;
@@ -811,7 +800,6 @@
             }
         }
 
-        /* Fancy hover underline for nav */
         .nav-link-underline {
             position: relative;
         }
@@ -833,7 +821,6 @@
             transform: scaleX(1);
         }
 
-        /* Card stagger animation */
         .board-card {
             opacity: 0;
             transform: translateY(20px);
@@ -849,7 +836,6 @@
             transform: translateY(-4px) !important;
         }
 
-        /* Photo placeholder shimmer */
         .board-photo {
             background: linear-gradient(90deg, var(--gray-200) 25%, var(--gray-100) 50%, var(--gray-200) 75%);
             background-size: 200% 100%;
@@ -866,7 +852,6 @@
             100% { background-position: -200% 0; }
         }
 
-        /* Current president badge */
         .current-badge {
             display: inline-block;
             background: var(--cranberry);
@@ -880,11 +865,21 @@
             margin-left: 8px;
             vertical-align: middle;
         }
+
+        @media screen {
+            html.iframe-loaded .navbar,
+            html.iframe-loaded .footer {
+                display: none !important;
+            }
+            
+            html.iframe-loaded body {
+                padding-top: 0 !important;
+            }
+        }
     </style>
 </head>
 <body>
 
-    <!-- ========== NAVIGATION ========== -->
     <nav class="navbar" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
             <a href="https://www.nobordersrotaract.club/home" class="nav-logo" aria-label="Rotaract Club Home">
@@ -941,7 +936,6 @@
             </button>
         </div>
 
-        <!-- Mobile Nav -->
         <div class="mobile-nav" id="mobileNav" aria-hidden="true">
             <div class="mobile-nav-inner">
                 <a href="https://www.nobordersrotaract.club/home" class="mobile-nav-link">Home</a>
@@ -977,7 +971,6 @@
         </div>
     </nav>
 
-    <!-- ========== HERO SECTION ========== -->
     <section class="hero" aria-label="Hero banner">
         <img
             src="https://iili.io/C4TcFmF.jpg"
@@ -988,7 +981,6 @@
         <div class="hero-overlay" aria-hidden="true"></div>
     </section>
 
-    <!-- ========== EXECUTIVE BOARD SECTION ========== -->
     <section class="board-section" id="board" aria-labelledby="board-title">
         <div class="board-inner">
             <div class="board-header fade-up">
@@ -998,7 +990,6 @@
 
             <div class="board-grid" id="boardGrid">
 
-                <!-- 1. President -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1022,7 +1013,6 @@
                     </div>
                 </div>
 
-                <!-- 2. Immediate Past President -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1046,7 +1036,6 @@
                     </div>
                 </div>
 
-                <!-- 3. Vice-President -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1070,7 +1059,6 @@
                     </div>
                 </div>
 
-                <!-- 4. Secretary -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1094,7 +1082,6 @@
                     </div>
                 </div>
 
-                <!-- 5. Treasurer -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1118,7 +1105,6 @@
                     </div>
                 </div>
 
-                <!-- 6. Rotaract Advisor -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1142,7 +1128,6 @@
                     </div>
                 </div>
 
-                <!-- 7. IT Chair -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1166,7 +1151,6 @@
                     </div>
                 </div>
 
-                <!-- 8. Public Relations Chair -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1190,7 +1174,6 @@
                     </div>
                 </div>
 
-                <!-- 9. Membership Committee Chair -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1214,7 +1197,6 @@
                     </div>
                 </div>
 
-                <!-- 10. Community Service Chair -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1238,7 +1220,6 @@
                     </div>
                 </div>
 
-                <!-- 11. Rotaract Learning Facilitator -->
                 <div class="board-card" role="article">
                     <div class="board-card-accent" aria-hidden="true"></div>
                     <div class="board-card-photo-wrap">
@@ -1262,11 +1243,10 @@
                     </div>
                 </div>
 
-            </div><!-- /board-grid -->
+            </div>
         </div>
     </section>
 
-    <!-- ========== PAST PRESIDENTS SECTION ========== -->
     <section class="presidents-section" id="past-presidents" aria-labelledby="presidents-title">
         <div class="presidents-inner">
             <div class="fade-up">
@@ -1344,11 +1324,10 @@
                     <div class="timeline-content">Cheyanne Rico</div>
                 </div>
 
-            </div><!-- /timeline -->
+            </div>
         </div>
     </section>
 
-    <!-- ========== GET INVOLVED SECTION ========== -->
     <section class="involved-section" id="involved" aria-labelledby="involved-title">
         <div class="involved-inner">
             <div class="fade-up">
@@ -1358,7 +1337,6 @@
 
             <div class="involved-buttons fade-up">
 
-                <!-- Facebook Button -->
                 <a href="https://www.facebook.com/NoBordersRotaract/"
                    class="involved-btn"
                    target="_blank"
@@ -1370,7 +1348,6 @@
                     Facebook
                 </a>
 
-                <!-- Instagram Button -->
                 <a href="https://www.instagram.com/no_borders_rotaract/"
                    class="involved-btn"
                    target="_blank"
@@ -1382,7 +1359,6 @@
                     Instagram
                 </a>
 
-                <!-- Join Button -->
                 <a href="https://www.nobordersrotaract.club/new-member-form-join-today"
                    class="involved-btn"
                    target="_blank"
@@ -1401,7 +1377,6 @@
         </div>
     </section>
 
-    <!-- ========== FOOTER ========== -->
     <footer class="footer" id="footer" role="contentinfo">
         <p class="footer-text">
             <strong>2015–2026</strong>
@@ -1412,7 +1387,10 @@
     </footer>
 
     <script>
-        // ========== HAMBURGER MENU ==========
+        if (window.self !== window.top) {
+            document.documentElement.classList.add('iframe-loaded');
+        }
+
         const hamburger = document.getElementById('hamburger');
         const mobileNav = document.getElementById('mobileNav');
 
@@ -1423,7 +1401,6 @@
             mobileNav.setAttribute('aria-hidden', (!isOpen).toString());
         });
 
-        // Close mobile nav on outside click
         document.addEventListener('click', function (e) {
             if (!hamburger.contains(e.target) && !mobileNav.contains(e.target)) {
                 mobileNav.classList.remove('open');
@@ -1433,7 +1410,6 @@
             }
         });
 
-        // ========== MOBILE DROPDOWNS ==========
         function setupMobileDropdown(toggleId, menuId) {
             const toggle = document.getElementById(toggleId);
             const menu = document.getElementById(menuId);
@@ -1457,7 +1433,6 @@
         setupMobileDropdown('mobileAboutToggle', 'mobileAboutMenu');
         setupMobileDropdown('mobileInvolvedToggle', 'mobileInvolvedMenu');
 
-        // Close mobile menu when a link is clicked
         mobileNav.querySelectorAll('a').forEach(function (link) {
             link.addEventListener('click', function () {
                 mobileNav.classList.remove('open');
@@ -1466,13 +1441,11 @@
             });
         });
 
-        // ========== INTERSECTION OBSERVER - ANIMATIONS ==========
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -40px 0px'
         };
 
-        // Fade-up elements
         const fadeObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -1486,7 +1459,6 @@
             fadeObserver.observe(el);
         });
 
-        // Board cards — staggered
         const boardObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry, idx) {
                 if (entry.isIntersecting) {
@@ -1503,7 +1475,6 @@
             boardObserver.observe(card);
         });
 
-        // Timeline items — staggered
         const timelineObserver = new IntersectionObserver(function (entries) {
             entries.forEach(function (entry) {
                 if (entry.isIntersecting) {
@@ -1521,7 +1492,6 @@
             timelineObserver.observe(item);
         });
 
-        // ========== SMOOTH SCROLL FOR ANCHOR LINKS ==========
         document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
             anchor.addEventListener('click', function (e) {
                 const target = document.querySelector(this.getAttribute('href'));
@@ -1532,7 +1502,6 @@
             });
         });
 
-        // ========== NAVBAR SCROLL SHADOW ==========
         const navbar = document.querySelector('.navbar');
         window.addEventListener('scroll', function () {
             if (window.scrollY > 10) {
